@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using FacSystemPropietaria.Models;
 
@@ -12,7 +9,7 @@ namespace FacSystemPropietaria.Controllers
 {
     public class ItemsController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private readonly ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Items
         public ActionResult Index()
@@ -46,8 +43,13 @@ namespace FacSystemPropietaria.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Description,Price,Quantity,CreationDate,State")] Items items)
+        public ActionResult Create([Bind(Include = "Id, Description, Price, Quantity")] Items items)
         {
+            DateTime dateTime = DateTime.UtcNow.Date;
+
+            items.CreationDate = dateTime.ToString("dd/MM/yyyy");
+            items.State = true;
+
             if (ModelState.IsValid)
             {
                 db.Items.Add(items);

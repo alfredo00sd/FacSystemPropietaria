@@ -43,7 +43,7 @@ namespace FacSystemPropietaria.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Cedula,Name,Title,Creation_date,Commision_percentage,State")] Employee employee)
+        public ActionResult Create([Bind(Include = "Cedula, Name, Title, Commision_percentage")] Employee employee)
         {
             DateTime dateTime = DateTime.UtcNow.Date;
 
