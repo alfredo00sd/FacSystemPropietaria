@@ -1,0 +1,50 @@
+﻿@model FacSystemPropietaria.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Comercial_name_or_social_reason)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comercial_name_or_social_reason)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RNC_or_cedula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RNC_or_cedula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Accountable_account)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Accountable_account)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

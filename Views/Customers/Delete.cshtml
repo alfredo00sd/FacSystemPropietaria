@@ -1,0 +1,39 @@
+﻿@model FacSystemPropietaria.Models.Customer
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<div class="row">
+    <div class="col col-md-6 col-md-offset-6">
+        <span class="btn btn-info">
+            @Html.ActionLink("Regresar", "Create")
+        </span>
+    </div>
+</div>
+
+<hr />
+
+
+<h2>Esta seguro de querer desvincular este cliente?</h2>
+<hr />
+<div class="card" style="width: 20rem; margin-bottom:1rem;">
+    <div class="card-header">
+        <b>Cliente: </b> @Html.DisplayFor(model => model.Comercial_name_or_social_reason)
+    </div>
+
+    <div class="card-body">
+        <p><b>RNC\Cedula: </b> @Html.DisplayFor(model => model.RNC_or_cedula)</p>
+        <p><b>Cuenta contable: </b> @Html.DisplayFor(model => model.Accountable_account)</p>
+    </div>
+    <div class="card-footer bg-light">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Desvincular" class="btn btn-danger btn-block" />
+            </div>
+        }
+    </div>
+</div>

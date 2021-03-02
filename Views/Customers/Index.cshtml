@@ -1,0 +1,38 @@
+﻿@model IEnumerable<FacSystemPropietaria.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col col-md-3">
+        <h2>Gestion de clientes</h2>
+    </div>
+    <div class="col col-md-9">
+        <span class="btn btn-primary"> @Html.ActionLink("Agregar nuevo", "Create", "Customers")</span>
+    </div>
+</div>
+
+<hr />
+
+@foreach (var item in Model)
+{
+    <div class="card" style="width: 18rem; margin-bottom:1rem;">
+        <div class="card-header">
+            <b>Cliente: </b> @Html.DisplayFor(modelItem => item.Comercial_name_or_social_reason)
+        </div>
+
+        <div class="card-body">
+
+            <p><b>RNC/CEDULA: </b> @Html.DisplayFor(modelItem => item.RNC_or_cedula)</p>
+            <p><b>Cuenta contable: </b> @Html.DisplayFor(modelItem => item.Accountable_account)</p>
+            <p><b>Estado: </b> @Html.DisplayFor(modelItem => item.State)</p>
+
+        </div>
+        <div class="card-footer bg-dark">
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </div>
+    </div>
+}

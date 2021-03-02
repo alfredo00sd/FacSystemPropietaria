@@ -1,0 +1,42 @@
+﻿@model FacSystemPropietaria.Models.Employee
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<div class="row">
+    <div class="col col-md-6 col-md-offset-6">
+        <span class="btn btn-info">
+            @Html.ActionLink("Regresar", "Create")
+        </span>
+    </div>
+</div>
+
+<hr />
+
+
+<h2>Esta seguro de querer desvincular este empleado?</h2>
+<hr />
+<div class="card" style="width: 20rem; margin-bottom:1rem;">
+    <div class="card-header">
+        <b>Empleado: </b> @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="card-body">
+
+        <p><b>Cedula: </b> @Html.DisplayFor(model => model.Cedula)</p>
+        <p><b>Area de trabajo: </b> @Html.DisplayFor(model => model.Title)</p>
+        <p><b>Fecha de ingreso: </b> @Html.DisplayFor(model => model.Creation_date)</p>
+        <p><b>% de comissiones: </b> @Html.DisplayFor(model => model.Commision_percentage)</p>
+    </div>
+    <div class="card-footer bg-light">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Desvincular" class="btn btn-danger btn-block" />
+            </div>
+        }
+    </div>
+</div>

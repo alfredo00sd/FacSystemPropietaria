@@ -1,0 +1,66 @@
+﻿@model FacSystemPropietaria.Models.Bill
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Bill</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee_Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer_Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fac_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fac_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ITEBIS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ITEBIS)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
