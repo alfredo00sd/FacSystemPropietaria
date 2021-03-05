@@ -12,10 +12,14 @@ namespace FacSystemPropietaria.Models
         [StringLength(11, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 11)]
         public string Employee_Id { get; set; }
 
+        public Employee Employee { get; set; }
+
         [Required]
         [Display(Name = "Cliente")]
         [StringLength(11, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 11)]
         public string Customer_Id { get; set; }
+
+        public List<Customer> Customers { get; set; }
 
         [Display(Name = "Productos")]
         public List<Items> Items { get; set; }

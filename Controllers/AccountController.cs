@@ -1,7 +1,5 @@
-﻿using System;
-using System.Globalization;
+﻿
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -9,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using FacSystemPropietaria.Models;
+using System;
 
 namespace FacSystemPropietaria.Controllers
 {
@@ -149,9 +148,19 @@ namespace FacSystemPropietaria.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            DateTime dateTime = DateTime.UtcNow.Date;
+
+            model.Employee.State = true;
+            model.Employee.Creation_date = dateTime.ToString("dd/MM/yyyy");
+
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser 
+                {  
+                    UserName =  model.Email, 
+                    Email = model.Email,
+                    EmployeeData = model.Employee
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

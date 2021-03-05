@@ -64,6 +64,10 @@ namespace FacSystemPropietaria.Models
 
     public class RegisterViewModel
     {
+
+        [Required]
+        public Employee Employee { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

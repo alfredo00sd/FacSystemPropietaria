@@ -7,6 +7,7 @@ using FacSystemPropietaria.Models;
 
 namespace FacSystemPropietaria.Controllers
 {
+    [Authorize]
     public class EmployeesController : Controller
     {
         private readonly ApplicationDbContext db = new ApplicationDbContext();
