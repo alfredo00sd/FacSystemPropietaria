@@ -22,7 +22,7 @@
 
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="row">
-        <div class="col col-md-6">
+        <div class="col col-md-4">
             <div class="form-group">
                 @Html.LabelFor(m => m.Employee.Cedula, htmlAttributes: new { @class = "control-label col-md-6" })
                 <div class="col-md-10">
@@ -48,7 +48,7 @@
             </div>
 
         </div>
-        <div class="col col-md-6">
+        <div class="col col-md-4">
             <div class="form-group">
                 @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
                 <div class="col-md-10">
@@ -62,18 +62,31 @@
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-6 control-label" })
                 <div class="col-md-10">
                     @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
                 </div>
             </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-12">
-            <input type="submit" class="btn btn-success btn-block" value="Registrar" />
+        <div class="col col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Employee.Commision_percentage, new { @class = "col-md-12 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Employee.Commision_percentage, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input type="submit" class="btn btn-success btn-block" value="Registrar" />
+                </div>
+            </div>
+
         </div>
+
     </div>
+   
+
 }
 
 @section Scripts {

@@ -7,38 +7,29 @@ namespace FacSystemPropietaria.Models
     {
         public int Id { get; set; }
 
-        [Required]
         [Display(Name = "Empleado")]
-        [StringLength(11, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 11)]
         public string Employee_Id { get; set; }
 
-        public Employee Employee { get; set; }
-
-        [Required]
         [Display(Name = "Cliente")]
-        [StringLength(11, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 11)]
         public string Customer_Id { get; set; }
 
-        public List<Customer> Customers { get; set; }
-
         [Display(Name = "Productos")]
-        public List<Items> Items { get; set; }
+        public string ItemDetailsId { get; set; }
 
         [Display(Name = "Fecha")]
-        [StringLength(10, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 10)]
         public string Fac_date { get; set; }
 
         [Display(Name = "Comentario")]
-        [StringLength(200, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 10)]
+        //[StringLength(200, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 10)]
         public string Comment { get; set; }
 
-        [Required]
         [Display(Name = "Total de factura")]
         public string Total { get; set; }
 
-        [Required]
         [Display(Name = "% ITEBIS")]
-        [StringLength(5, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
         public string ITEBIS { get; set; }
+
+        [Display(Name ="Estado (Pagada/No pagada)")]
+        public bool State { get; set; }
     }
 }

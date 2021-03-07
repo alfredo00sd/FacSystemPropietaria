@@ -197,14 +197,36 @@
     <Compile Include="Migrations\202103052115535_updateUser.Designer.cs">
       <DependentUpon>202103052115535_updateUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103060300114_changeBill.cs" />
+    <Compile Include="Migrations\202103060300114_changeBill.Designer.cs">
+      <DependentUpon>202103060300114_changeBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103072154295_updateBill.cs" />
+    <Compile Include="Migrations\202103072154295_updateBill.Designer.cs">
+      <DependentUpon>202103072154295_updateBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103072204209_updateBill0.1.cs" />
+    <Compile Include="Migrations\202103072204209_updateBill0.1.Designer.cs">
+      <DependentUpon>202103072204209_updateBill0.1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103072208033_updateBill0.2.cs" />
+    <Compile Include="Migrations\202103072208033_updateBill0.2.Designer.cs">
+      <DependentUpon>202103072208033_updateBill0.2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103072209082_updateBill0.3.cs" />
+    <Compile Include="Migrations\202103072209082_updateBill0.3.Designer.cs">
+      <DependentUpon>202103072209082_updateBill0.3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bill.cs" />
+    <Compile Include="Models\BillDetails.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Items.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\NewItemsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -215,6 +237,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\AddItemToList.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -300,6 +323,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103052115535_updateUser.resx">
       <DependentUpon>202103052115535_updateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103060300114_changeBill.resx">
+      <DependentUpon>202103060300114_changeBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103072154295_updateBill.resx">
+      <DependentUpon>202103072154295_updateBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103072204209_updateBill0.1.resx">
+      <DependentUpon>202103072204209_updateBill0.1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103072208033_updateBill0.2.resx">
+      <DependentUpon>202103072208033_updateBill0.2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103072209082_updateBill0.3.resx">
+      <DependentUpon>202103072209082_updateBill0.3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

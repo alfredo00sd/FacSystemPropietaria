@@ -1,8 +1,11 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using FacSystemPropietaria.Models;
+using Microsoft.AspNet.Identity;
+
 
 namespace FacSystemPropietaria.Controllers
 {
@@ -35,7 +38,16 @@ namespace FacSystemPropietaria.Controllers
         // GET: Bills/Create
         public ActionResult Create()
         {
-            return View();
+            var Products = db.Items.ToList();
+            var Customers = db.Customers.ToList();
+
+            var ViewModel = new NewItemsViewModel 
+            {
+                Items = Products,
+                Customers = Customers,
+            };
+
+            return View(ViewModel);
         }
 
         // POST: Bills/Create
@@ -43,16 +55,27 @@ namespace FacSystemPropietaria.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Employee_Id,Customer_Id,Fac_date,Comment,Total,ITEBIS")] Bill bill)
+        public ActionResult Create([Bind(Include = "Id,Employee_Id,Customer_Id,Fac_date,Comment,Total,ITEBIS")] Bill bill, BillDetails billDetails)
         {
-            if (ModelState.IsValid)
-            {
+            DateTime dateTime = DateTime.UtcNow.Date;
+            bill.Fac_date = dateTime.ToString("dd/MM/yyyy");
+            bill.State = true;
+            bill.ITEBIS = "18%";
+            bill.Total = "5,000.00";
+            
+            bill.ItemDetailsId = "Carajo";
+
+            bill.Employee_Id = User.Identity.Name;
+            //bill.Items = new System.Collections.Generic.List<Items> { new Items { Description = "Shampoo", Price = 500, Quantity = 2 } };
+            
+           if (ModelState.IsValid)
+           {
                 db.Bills.Add(bill);
                 db.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
-            return View(bill);
+                return RedirectToAction("Index");
+           }
+            return null;
         }
 
         // GET: Bills/Edit/5
