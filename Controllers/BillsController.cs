@@ -1,11 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using FacSystemPropietaria.Models;
-using Microsoft.AspNet.Identity;
-
 
 namespace FacSystemPropietaria.Controllers
 {
@@ -55,8 +54,38 @@ namespace FacSystemPropietaria.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Employee_Id,Customer_Id,Fac_date,Comment,Total,ITEBIS")] Bill bill, BillDetails billDetails)
+        public ActionResult Create([Bind(Include = "Id,Employee_Id,Customer_Id,Fac_date,Comment,Total,ITEBIS")] Bill bill, BillDetailVM billDetails)
         {
+            var DetailList = new List<BillDetails>();
+
+            //var ItemsAndQuantities = billDetails.ItemsIds.Zip(billDetails.Quantity, (i, q) => new { Item = i, Quantity = q});
+
+            //foreach (var item in ItemsAndQuantities) 
+            //{
+            //  DetailList.Add
+            //(
+            //new BillDetails 
+            ///  {
+            //  ItemId = Int32.Parse(item.Item),
+            // Quantity =  item.Quantity
+            // }
+            //);   
+            //}
+
+            //string[] broken_str_comma = billDetails.Quantity.Split(',');
+
+
+
+            //foreach (var sub_str_comma in broken_str_comma)
+
+           // {
+
+           //     System.Console.WriteLine(sub_str_comma);
+
+          //  }
+
+            Console.ReadLine();
+
             DateTime dateTime = DateTime.UtcNow.Date;
             bill.Fac_date = dateTime.ToString("dd/MM/yyyy");
             bill.State = true;

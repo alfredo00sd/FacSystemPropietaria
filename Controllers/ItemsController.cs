@@ -15,7 +15,7 @@ namespace FacSystemPropietaria.Controllers
         // GET: Items
         public ActionResult Index()
         {
-            return View(db.Items.ToList());
+            return View(db.Items.Where(c => c.State == true).ToList());
         }
 
         // GET: Items/Details/5

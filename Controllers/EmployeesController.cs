@@ -36,7 +36,7 @@ namespace FacSystemPropietaria.Controllers
         // GET: Employees/Create
         public ActionResult Create()
         {
-            return View(db.Employees.ToList());
+            return View(db.Employees.Where(c => c.State == true).ToList());
         }
 
         // POST: Employees/Create

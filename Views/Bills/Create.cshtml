@@ -1,7 +1,8 @@
 ﻿@model FacSystemPropietaria.Models.NewItemsViewModel
 @{
     var Bill = new FacSystemPropietaria.Models.Bill();
-    var BillDetails = new FacSystemPropietaria.Models.BillDetails();
+    var billDetails = new FacSystemPropietaria.Models.BillDetails();
+    var billDetailVM = new FacSystemPropietaria.Models.BillDetailVM();
 }
 
 @{
@@ -73,9 +74,8 @@
                     </div>
 
                     <!-- Container to holds the products added -->
-                    <div id="products-list" class="col-md-6"></div>
-                    @Html.EditorFor(m => BillDetails.ItemId, new { htmlAttributes = new { @type = "text", @id = "ItemsId", @class = "form-control" } })
-                    @Html.EditorFor(m => BillDetails.Quantity, new { htmlAttributes = new { @id = "ItemsQ", @class = "form-control" } })
+                    <div id="products-list" class="col-md-6"></div> 
+                    @Html.EditorFor(m => billDetailVM.itemsForBill, new { htmlAttributes = new { @type = "text", @id = "itemList", @class = "form-control" } })
 
                 </div>
                 </div>

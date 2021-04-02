@@ -14,7 +14,7 @@ namespace FacSystemPropietaria.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            return View(db.Customers.ToList());
+            return View(db.Customers.Where(c => c.State == true).ToList());
         }
 
         // GET: Customers/Details/5
@@ -35,7 +35,7 @@ namespace FacSystemPropietaria.Controllers
         // GET: Customers/Create
         public ActionResult Create()
         {
-            return View(db.Customers.ToList());
+            return View(db.Customers.Where(c => c.State == true).ToList());
         }
 
         // POST: Customers/Create

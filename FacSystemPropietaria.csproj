@@ -217,10 +217,28 @@
     <Compile Include="Migrations\202103072209082_updateBill0.3.Designer.cs">
       <DependentUpon>202103072209082_updateBill0.3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103122155390_DetailMod.cs" />
+    <Compile Include="Migrations\202103122155390_DetailMod.Designer.cs">
+      <DependentUpon>202103122155390_DetailMod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103122322526_DetailMod1.cs" />
+    <Compile Include="Migrations\202103122322526_DetailMod1.Designer.cs">
+      <DependentUpon>202103122322526_DetailMod1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104022155494_Adding seat table.cs" />
+    <Compile Include="Migrations\202104022155494_Adding seat table.Designer.cs">
+      <DependentUpon>202104022155494_Adding seat table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104022322316_Mod BillVM.cs" />
+    <Compile Include="Migrations\202104022322316_Mod BillVM.Designer.cs">
+      <DependentUpon>202104022322316_Mod BillVM.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountSeat.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bill.cs" />
     <Compile Include="Models\BillDetails.cs" />
+    <Compile Include="Models\BillDetailVM.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -288,7 +306,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Customer\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -338,6 +355,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103072209082_updateBill0.3.resx">
       <DependentUpon>202103072209082_updateBill0.3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103122155390_DetailMod.resx">
+      <DependentUpon>202103122155390_DetailMod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103122322526_DetailMod1.resx">
+      <DependentUpon>202103122322526_DetailMod1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104022155494_Adding seat table.resx">
+      <DependentUpon>202104022155494_Adding seat table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104022322316_Mod BillVM.resx">
+      <DependentUpon>202104022322316_Mod BillVM.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
