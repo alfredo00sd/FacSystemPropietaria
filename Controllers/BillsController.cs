@@ -54,38 +54,27 @@ namespace FacSystemPropietaria.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Employee_Id,Customer_Id,Fac_date,Comment,Total,ITEBIS")] Bill bill, BillDetailVM billDetails)
+        public ActionResult Create([Bind(Include = "Id,Employee_Id,Customer_Id,Fac_date,Comment,Total,ITEBIS")] Bill bill, BillDetails billDetails)
         {
             var DetailList = new List<BillDetails>();
 
-            //var ItemsAndQuantities = billDetails.ItemsIds.Zip(billDetails.Quantity, (i, q) => new { Item = i, Quantity = q});
+            BillDetailVM vm = new BillDetailVM();
+            vm.ItemsIds.Add(billDetails.Price);
+            vm.Quantity.Add(billDetails.Quantity);
 
-            //foreach (var item in ItemsAndQuantities) 
-            //{
-            //  DetailList.Add
-            //(
-            //new BillDetails 
-            ///  {
-            //  ItemId = Int32.Parse(item.Item),
-            // Quantity =  item.Quantity
-            // }
-            //);   
-            //}
+            var ItemsAndQuantities = vm.ItemsIds.Zip(vm.Quantity, (i, q) => new { Item = i, Quantity = q});
 
-            //string[] broken_str_comma = billDetails.Quantity.Split(',');
+            foreach (var item in ItemsAndQuantities) 
+            {
+              DetailList.Add (
+                new BillDetails 
+                {
+                    ItemId = Int32.Parse(item.Item),
+                    Quantity =  item.Quantity
+                });   
+            }
 
-
-
-            //foreach (var sub_str_comma in broken_str_comma)
-
-           // {
-
-           //     System.Console.WriteLine(sub_str_comma);
-
-          //  }
-
-            Console.ReadLine();
-
+            
             DateTime dateTime = DateTime.UtcNow.Date;
             bill.Fac_date = dateTime.ToString("dd/MM/yyyy");
             bill.State = true;

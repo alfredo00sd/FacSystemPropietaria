@@ -171,6 +171,7 @@
     <Compile Include="Controllers\BillsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\FacturasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -233,6 +234,14 @@
     <Compile Include="Migrations\202104022322316_Mod BillVM.Designer.cs">
       <DependentUpon>202104022322316_Mod BillVM.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104041954557_CSharp is a shit.cs" />
+    <Compile Include="Migrations\202104041954557_CSharp is a shit.Designer.cs">
+      <DependentUpon>202104041954557_CSharp is a shit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104042045112_CSharp is a shit x2.cs" />
+    <Compile Include="Migrations\202104042045112_CSharp is a shit x2.Designer.cs">
+      <DependentUpon>202104042045112_CSharp is a shit x2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountSeat.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -241,6 +250,7 @@
     <Compile Include="Models\BillDetailVM.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Factura.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Items.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -324,6 +334,11 @@
     <Content Include="Views\Bills\Details.cshtml" />
     <Content Include="Views\Bills\Edit.cshtml" />
     <Content Include="Views\Bills\Index.cshtml" />
+    <Content Include="Views\Facturas\Create.cshtml" />
+    <Content Include="Views\Facturas\Delete.cshtml" />
+    <Content Include="Views\Facturas\Details.cshtml" />
+    <Content Include="Views\Facturas\Edit.cshtml" />
+    <Content Include="Views\Facturas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202102272113111_InitialCreate.resx">
@@ -367,6 +382,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104022322316_Mod BillVM.resx">
       <DependentUpon>202104022322316_Mod BillVM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104041954557_CSharp is a shit.resx">
+      <DependentUpon>202104041954557_CSharp is a shit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104042045112_CSharp is a shit x2.resx">
+      <DependentUpon>202104042045112_CSharp is a shit x2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -11,7 +11,6 @@ class UI {
     addProducts(product) {
         const productList = document.getElementById('products-list');
         const element = document.createElement('div');
-        const products = document.getElementById('itemList');
 
         element.innerHTML = `
         <div class="card text-center mb-4">
@@ -23,9 +22,6 @@ class UI {
             </div>
         </div> 
         `;
-
-        products.value = products.value + ` ${product.id}, ${product.quantity}. `;
-
         productList.appendChild(element);
         //this.clearForm();
     }
@@ -49,6 +45,13 @@ document.getElementById('addItem').addEventListener('click', function (e) {
     const id = document.getElementById('ItemName').value;
     const name = document.getElementById('ItemName').options[document.getElementById('ItemName').selectedIndex].text;
     const quantity = document.getElementById('quantity').value;
+
+    //Get value for Id
+    const ItemId = document.getElementById('ItemName').value;
+    const ItemQ = document.getElementById('quantity').value;
+    //console.log(name, price, year);
+    document.getElementById("ItemsId").value = document.getElementById("ItemsId").value + "," + ItemId;
+    document.getElementById("ItemsQ").value = document.getElementById("ItemsQ").value + "," + ItemQ;
 
     const product = new Product(id, name, quantity);
     
