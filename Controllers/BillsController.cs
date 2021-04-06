@@ -54,24 +54,24 @@ namespace FacSystemPropietaria.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Employee_Id,Customer_Id,Fac_date,Comment,Total,ITEBIS")] Bill bill, BillDetails billDetails)
+        public ActionResult Create(Bill bill, BillDetailVM billDetailVM)//[Bind(Include = "Id,Employee_Id,Customer_Id,Fac_date,Comment,Total,ITEBIS")]
         {
             var DetailList = new List<BillDetails>();
+            
+            //List<string> itemId = billDetails.ItemsIds.Split(',').ToList();
 
-            BillDetailVM vm = new BillDetailVM();
-            vm.ItemsIds.Add(billDetails.Price);
-            vm.Quantity.Add(billDetails.Quantity);
-
-            var ItemsAndQuantities = vm.ItemsIds.Zip(vm.Quantity, (i, q) => new { Item = i, Quantity = q});
+            var ItemsAndQuantities = billDetailVM.ItemsIds.Split(',').Zip(billDetailVM.Quantity.Split(','), (i, q) => new {Item = i, Quantity = q});
 
             foreach (var item in ItemsAndQuantities) 
             {
-              DetailList.Add (
-                new BillDetails 
-                {
-                    ItemId = Int32.Parse(item.Item),
-                    Quantity =  item.Quantity
-                });   
+                if (item.Item.Length > 0 && item.Quantity.Length > 0) {
+                    DetailList.Add(
+                    new BillDetails
+                    {
+                        ItemId = Int32.Parse(item.Item),
+                        Quantity = item.Quantity
+                    });
+                }
             }
 
             
@@ -81,12 +81,13 @@ namespace FacSystemPropietaria.Controllers
             bill.ITEBIS = "18%";
             bill.Total = "5,000.00";
             
-            bill.ItemDetailsId = "Carajo";
+            bill.ItemDetailsId = "";
 
             bill.Employee_Id = User.Identity.Name;
-            //bill.Items = new System.Collections.Generic.List<Items> { new Items { Description = "Shampoo", Price = 500, Quantity = 2 } };
-            
-           if (ModelState.IsValid)
+
+            //Relacionar detalle con factura
+
+            if (ModelState.IsValid)
            {
                 db.Bills.Add(bill);
                 db.SaveChanges();

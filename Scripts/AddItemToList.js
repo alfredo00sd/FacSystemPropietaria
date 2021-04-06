@@ -23,11 +23,13 @@ class UI {
         </div> 
         `;
         productList.appendChild(element);
-        //this.clearForm();
+        this.clearForm();
     }
 
     clearForm() {
-        document.getElementById('product-form').reset();
+        document.getElementById('ItemName').value = "";
+        document.getElementById('quantity').value = "";
+        //document.getElementById('product-form').reset();
     }
 
     deleteProducts(element) {
@@ -49,7 +51,7 @@ document.getElementById('addItem').addEventListener('click', function (e) {
     //Get value for Id
     const ItemId = document.getElementById('ItemName').value;
     const ItemQ = document.getElementById('quantity').value;
-    //console.log(name, price, year);
+
     document.getElementById("ItemsId").value = document.getElementById("ItemsId").value + "," + ItemId;
     document.getElementById("ItemsQ").value = document.getElementById("ItemsQ").value + "," + ItemQ;
 

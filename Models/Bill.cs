@@ -23,6 +23,9 @@ namespace FacSystemPropietaria.Models
         //[StringLength(200, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 10)]
         public string Comment { get; set; }
 
+        [Display(Name = "Productos")]
+        public string Productos { get; set; }
+
         [Display(Name = "Total de factura")]
         public string Total { get; set; }
 
