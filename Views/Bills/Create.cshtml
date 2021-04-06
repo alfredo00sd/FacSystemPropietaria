@@ -61,7 +61,8 @@
                             <!-- Form to add products -->
                             <form id="product-form" class="card-body">
                                 <div class="form-group">
-                                    @Html.DropDownListFor(m => Bill.ItemDetailsId, new SelectList(Model.Items, "Id", "Description"), "Seleccionar...", new { @id = "ItemName", @class = "form-control" })
+                                    @Html.DropDownListFor(m => Bill.ItemDetailsId, new SelectList((from i in Model.Items select new { Id = i.Id, Description = i.Description + " $ " + i.Price }) , "Id", "Description"), "Seleccionar...", new { @id = "ItemName", @class = "form-control" })
+                                    
                                 </div>
                                 <div class="form-group">
                                     <input type="number" step="1" id="quantity" placeholder="Cantidad" class="form-control">

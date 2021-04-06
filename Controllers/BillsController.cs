@@ -57,8 +57,6 @@ namespace FacSystemPropietaria.Controllers
         public ActionResult Create(Bill bill, BillDetailVM billDetailVM)//[Bind(Include = "Id,Employee_Id,Customer_Id,Fac_date,Comment,Total,ITEBIS")]
         {
             var DetailList = new List<BillDetails>();
-            
-            //List<string> itemId = billDetails.ItemsIds.Split(',').ToList();
 
             var ItemsAndQuantities = billDetailVM.ItemsIds.Split(',').Zip(billDetailVM.Quantity.Split(','), (i, q) => new {Item = i, Quantity = q});
 
