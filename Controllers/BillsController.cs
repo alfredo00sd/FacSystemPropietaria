@@ -60,39 +60,37 @@ namespace FacSystemPropietaria.Controllers
 
             var ItemsAndQuantities = billDetailVM.ItemsIds.Split(',').Zip(billDetailVM.Quantity.Split(','), (i, q) => new {Item = i, Quantity = q});
 
+            DateTime dateTime = DateTime.UtcNow.Date;
+            bill.Fac_date = dateTime.ToString("dd/MM/yyyy");
+            bill.Employee_Id = User.Identity.Name;
+            bill.State = true;
+            bill.ITEBIS = "0.18";
+            
+            if (ModelState.IsValid)
+            {
+                db.Bills.Add(bill);
+                db.SaveChanges();
+            }
+
             foreach (var item in ItemsAndQuantities) 
             {
                 if (item.Item.Length > 0 && item.Quantity.Length > 0) {
                     DetailList.Add(
                     new BillDetails
                     {
+                        Id = bill.Id,
                         ItemId = Int32.Parse(item.Item),
                         Quantity = item.Quantity
                     });
                 }
             }
 
-            
-            DateTime dateTime = DateTime.UtcNow.Date;
-            bill.Fac_date = dateTime.ToString("dd/MM/yyyy");
-            bill.State = true;
-            bill.ITEBIS = "18%";
-            bill.Total = "5,000.00";
-            
-            bill.ItemDetailsId = "";
-
-            bill.Employee_Id = User.Identity.Name;
-
-            //Relacionar detalle con factura
-
-            if (ModelState.IsValid)
-           {
-                db.Bills.Add(bill);
-                db.SaveChanges();
-
-                return RedirectToAction("Index");
-           }
-            return null;
+            foreach (var detail in DetailList) 
+            {
+                db.BillDetails.Add(detail);
+            }
+           
+            return RedirectToAction("Index");
         }
 
         // GET: Bills/Edit/5

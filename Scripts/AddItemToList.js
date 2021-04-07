@@ -11,7 +11,9 @@ class UI {
     addProducts(product) {
         const productList = document.getElementById('products-list');
         const element = document.createElement('div');
-
+        const total = document.getElementById('billTotal');
+        const subtotal = document.getElementById('subTotal');
+        
         element.innerHTML = `
         <div class="card text-center mb-4">
             <div class="card-body">
@@ -22,6 +24,18 @@ class UI {
             </div>
         </div> 
         `;
+        var tot = product.name.split("RD$");
+        if (subtotal.value != "") {
+            subtotal.value = parseFloat(subtotal.value) + parseFloat(tot[1]);
+        } else {
+            subtotal.value = tot[1];
+        }
+
+        if (total.value != "") {
+            total.value = Math.round((parseFloat(total.value) * 0.18) + parseFloat(total.value) + parseFloat(tot[1]), 2);
+        } else {
+            total.value = Math.round((parseFloat(tot[1]) * 0.18) + parseFloat(tot[1]), 2);
+        }
         productList.appendChild(element);
         this.clearForm();
     }

@@ -254,6 +254,10 @@
     <Compile Include="Migrations\202104062006501_Change fac 1.2.Designer.cs">
       <DependentUpon>202104062006501_Change fac 1.2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104071353384_Adding detail model.cs" />
+    <Compile Include="Migrations\202104071353384_Adding detail model.Designer.cs">
+      <DependentUpon>202104071353384_Adding detail model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountSeat.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -409,6 +413,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104062006501_Change fac 1.2.resx">
       <DependentUpon>202104062006501_Change fac 1.2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104071353384_Adding detail model.resx">
+      <DependentUpon>202104071353384_Adding detail model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

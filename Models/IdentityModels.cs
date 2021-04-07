@@ -33,6 +33,7 @@ namespace FacSystemPropietaria.Models
         public DbSet<Items> Items { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Bill> Bills { get; set; }
+        public DbSet<BillDetails> BillDetails { get; set; }
         public DbSet<Factura> Factura { get; set; }
         public DbSet<Employee> Employees { get; set; }
     }
