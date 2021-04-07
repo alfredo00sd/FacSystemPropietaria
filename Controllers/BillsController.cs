@@ -71,6 +71,7 @@ namespace FacSystemPropietaria.Controllers
                 db.Bills.Add(bill);
                 db.SaveChanges();
             }
+            int idx = bill.Id;
 
             foreach (var item in ItemsAndQuantities) 
             {
@@ -78,7 +79,7 @@ namespace FacSystemPropietaria.Controllers
                     DetailList.Add(
                     new BillDetails
                     {
-                        Id = bill.Id,
+                        BillId = idx,
                         ItemId = Int32.Parse(item.Item),
                         Quantity = item.Quantity
                     });
@@ -88,6 +89,7 @@ namespace FacSystemPropietaria.Controllers
             foreach (var detail in DetailList) 
             {
                 db.BillDetails.Add(detail);
+                db.SaveChanges();
             }
            
             return RedirectToAction("Index");

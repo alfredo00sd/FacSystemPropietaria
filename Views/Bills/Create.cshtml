@@ -75,8 +75,8 @@
 
                     <!-- Container to holds the products added -->
                     <div id="products-list" class="col-md-6"></div>
-                    @Html.EditorFor(m => billDetailVM.ItemsIds, new { htmlAttributes = new { @id = "ItemsId", @type = "text", @class = "form-control" } })
-                    @Html.EditorFor(m => billDetailVM.Quantity, new { htmlAttributes = new { @id = "ItemsQ", @class = "form-control" } })
+                    @Html.EditorFor(m => billDetailVM.ItemsIds, new { htmlAttributes = new { @id = "ItemsId", @type = "hidden", @class = "form-control" } })
+                    @Html.EditorFor(m => billDetailVM.Quantity, new { htmlAttributes = new { @id = "ItemsQ", @type="hidden", @class = "form-control" } })
           
                 </div>
                 </div>

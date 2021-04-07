@@ -26,15 +26,15 @@ class UI {
         `;
         var tot = product.name.split("RD$");
         if (subtotal.value != "") {
-            subtotal.value = parseFloat(subtotal.value) + parseFloat(tot[1]);
+            subtotal.value = parseFloat(subtotal.value) + (parseFloat(tot[1]) * parseInt(product.quantity));
         } else {
-            subtotal.value = tot[1];
+            subtotal.value = tot[1] * parseInt(product.quantity);
         }
 
         if (total.value != "") {
-            total.value = Math.round((parseFloat(total.value) * 0.18) + parseFloat(total.value) + parseFloat(tot[1]), 2);
+            total.value = Math.round((parseFloat(total.value) * 0.18) + parseFloat(total.value) + (parseFloat(tot[1]) * parseInt(product.quantity)) , 2);
         } else {
-            total.value = Math.round((parseFloat(tot[1]) * 0.18) + parseFloat(tot[1]), 2);
+            total.value = Math.round((parseFloat(tot[1]) * 0.18) + (parseFloat(tot[1]) * parseInt(product.quantity)), 2);
         }
         productList.appendChild(element);
         this.clearForm();
