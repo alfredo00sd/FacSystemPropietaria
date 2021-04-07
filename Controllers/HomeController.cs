@@ -1,13 +1,46 @@
-﻿using System.Web.Mvc;
+﻿using FacSystemPropietaria.Models;
+using System;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace FacSystemPropietaria.Controllers
 {
     [AllowAnonymous]
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext db = new ApplicationDbContext();
+
         public ActionResult Index()
         {
-            return View();
+            return View(db.AccountSeats.ToList());
+        }
+
+        public ActionResult ProcessSeat() 
+        {
+            float Ammount = 0f;
+            string Description = "Asiento contable, correspondiente al perdiodo: " + DateTime.UtcNow.Date.Month + "-" + DateTime.UtcNow.Date.Year;
+            //var billsOfThisPeriod = db.Bills.Where(b => Convert.ToDateTime(b.Fac_date) >= Convert.ToDateTime("01/04/2021") && Convert.ToDateTime(b.Fac_date) <= Convert.ToDateTime("31/04/2021")).ToList();
+            var billsOfThisPeriod = db.Bills.ToList();
+            foreach (var billTotal in billsOfThisPeriod)
+            {
+                Ammount += float.Parse(billTotal.Total);
+            }
+
+            AccountSeat accountSeat = new AccountSeat
+            {
+                Description = Description,
+                CustomerId = 2,
+                AccountNumber = 0,
+                MType = "C",
+                SeatDate = "" + DateTime.UtcNow.Date,
+                SeatAmount = Ammount,
+                State = false
+            };
+
+            db.AccountSeats.Add(accountSeat);
+            db.SaveChanges();
+
+            return null;
         }
 
         public ActionResult About()

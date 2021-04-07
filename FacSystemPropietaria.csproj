@@ -258,6 +258,14 @@
     <Compile Include="Migrations\202104071353384_Adding detail model.Designer.cs">
       <DependentUpon>202104071353384_Adding detail model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104072057361_Adding account seat.cs" />
+    <Compile Include="Migrations\202104072057361_Adding account seat.Designer.cs">
+      <DependentUpon>202104072057361_Adding account seat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104072122414_Mod account seat.cs" />
+    <Compile Include="Migrations\202104072122414_Mod account seat.Designer.cs">
+      <DependentUpon>202104072122414_Mod account seat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountSeat.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -416,6 +424,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104071353384_Adding detail model.resx">
       <DependentUpon>202104071353384_Adding detail model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104072057361_Adding account seat.resx">
+      <DependentUpon>202104072057361_Adding account seat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104072122414_Mod account seat.resx">
+      <DependentUpon>202104072122414_Mod account seat.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -8,7 +8,7 @@
         public int AccountNumber { get; set; }
         public string MType { get; set; }
         public string SeatDate { get; set; }
-        public int SeatAmount { get; set; }
+        public float SeatAmount { get; set; }
         public bool State { get; set; }
     }
 }

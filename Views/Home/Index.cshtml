@@ -1,11 +1,15 @@
-﻿@{
+﻿@model IEnumerable<FacSystemPropietaria.Models.AccountSeat>
+
+@{
     ViewBag.Title = "Home Page";
 }
 
 <div class="jumbotron">
     <h1>Asientos contables</h1>
-    <p class="lead">Almacenan la informacion producida por el sistema de facturacion de forma que pueda ser enviada a un modulo de resguardo, al igual que se puedan consultar
-                    los asientos enviados por este sistema.</p>
+    <p class="lead">
+        Almacenan la informacion producida por el sistema de facturacion de forma que pueda ser enviada a un modulo de resguardo, al igual que se puedan consultar
+        los asientos enviados por este sistema.
+    </p>
     <p><a href="#" class="btn btn-primary btn-lg">Ver asientos enviados</a></p>
 </div>
 
@@ -19,6 +23,64 @@
         <p><a class="btn btn-success" href="#">Enviar pendientes</a></p>
     </div>
     <div class="col-md-8">
-        <h2>Loading table of pendings...</h2>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AccountNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SeatDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SeatAmount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.State)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustomerId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AccountNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SeatDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SeatAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.State)
+                    </td>
+                </tr>
+            }
+
+        </table>
     </div>
 </div>
