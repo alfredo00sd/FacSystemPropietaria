@@ -10,11 +10,13 @@ namespace FacSystemPropietaria.Controllers
     {
         private readonly ApplicationDbContext db = new ApplicationDbContext();
 
+        [Authorize]
         public ActionResult Index()
         {
-            return View(db.AccountSeats.ToList());
+            return View(db.AccountSeats.Where(a => a.State == false).ToList());
         }
 
+        [Authorize]
         public ActionResult ProcessSeat() 
         {
             float Ammount = 0f;
@@ -29,9 +31,9 @@ namespace FacSystemPropietaria.Controllers
             AccountSeat accountSeat = new AccountSeat
             {
                 Description = Description,
-                CustomerId = 2,
-                AccountNumber = 0,
-                MType = "C",
+                CustomerId = 3,
+                AccountNumber = 13,
+                MType = "DB",
                 SeatDate = "" + DateTime.UtcNow.Date,
                 SeatAmount = Ammount,
                 State = false
