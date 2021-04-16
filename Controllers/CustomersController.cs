@@ -12,10 +12,10 @@ namespace FacSystemPropietaria.Controllers
         private readonly ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Customers
-        public ActionResult Index()
-        {
-            return View(db.Customers.Where(c => c.State == true).ToList());
-        }
+        //public ActionResult Index()
+        //{
+          //  return View(db.Customers.Where(c => c.State == true).ToList());
+        //}
 
         // GET: Customers/Details/5
         public ActionResult Details(int? id)
@@ -45,15 +45,15 @@ namespace FacSystemPropietaria.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Comercial_name_or_social_reason,RNC_or_cedula,Accountable_account,State")] Customer customer)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 customer.State = true;
                 db.Customers.Add(customer);
                 db.SaveChanges();
                 return RedirectToAction("Create");
-            }
+            //}
 
-            return View(customer);
+            //return View(customer);
         }
 
         // GET: Customers/Edit/5

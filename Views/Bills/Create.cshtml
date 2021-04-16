@@ -34,7 +34,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-6">Cliente</label>
                     <div class="col-md-12">
-                        @Html.DropDownListFor(m => Bill.Customer_Id, new SelectList(Model.Customers, "Id", "Comercial_name_or_social_reason"), "Seleccionar...", new { @class = "form-control"})
+                        @Html.DropDownListFor(m => Bill.Customer_Id, new SelectList(Model.Customers.Where(p => p.State == true), "Id", "Comercial_name_or_social_reason"), "Seleccionar...", new { @class = "form-control"})
                         @Html.ValidationMessageFor(m => Bill.Customer_Id, "", new { @class = "text-danger" })
                     </div>
                 </div>

@@ -16,7 +16,7 @@ namespace FacSystemPropietaria.Controllers
         // GET: Bills
         public ActionResult Index()
         {
-            return View(db.Bills.ToList());
+            return View(db.Bills.OrderByDescending(facs => facs.Fac_date).ToList());
         }
 
         // GET: Bills/Details/5
