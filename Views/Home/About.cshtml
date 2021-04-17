@@ -3,10 +3,21 @@
 @{ ViewBag.Title = "About";}
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Asientos enviados al web-service externo</h2>
+    <div class="col col-md-6">
+        <span class="btn btn-info">
+            @Html.ActionLink("Regresar", "Index", "Home")
+        </span>
     </div>
-    <div class="col-md-8">
+    <div class="col col-md-6">
+        <h2 class="text-lg-right">Asientos enviados al web-service externo</h2>
+    </div>
+</div>
+
+<hr />
+
+
+<div class="row">
+    <div class="col-md-12">
         <table class="table">
             <tr>
                 <th>

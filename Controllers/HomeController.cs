@@ -4,13 +4,12 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using System.Collections.Generic;
-using System.IO;
 using System.Web.Script.Serialization;
 using System.Net.Http;
-using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Data.Entity;
 
 namespace FacSystemPropietaria.Controllers
 {
@@ -78,24 +77,23 @@ namespace FacSystemPropietaria.Controllers
                     totalAmount += seat.SeatAmount;
                 }
                 /*
-                {
-                    "description": "test",
-                    "idAuxiliarSystem": 2,
-                    "movementType": "trna",
-                    "entryDate": "2021-04-16T23:51:23.127Z",
-                    "status": true,
-                }*/
+                 "description": "string",
+                  "idAuxiliarSystem": 0,
+                  "account": "string",
+                  "movementType": "string",
+                  "entryDate": "2021-04-08",
+                  "seatAmount": 0,
+                  "status": true */
                 //Envio de asiento.
                 Root obj = new Root
                 {
-                    Descripcion = "Asiento contable, correspondiente al perdiodo: " + DateTime.UtcNow.Date.Month + "-" + DateTime.UtcNow.Date.Year,
-                    IdCuentaAuxiliar = 3,
-                    MovementType = "DB",
-                    Asientos = new List<AccountSeat> 
+                    description = "FacSystem <> Asiento contable, correspondiente al perdiodo: " + DateTime.UtcNow.Date.Month + "-" + DateTime.UtcNow.Date.Year,
+                    idAuxiliarSystem = 3,
+                    account = new List<AccountSeat> 
                     { 
                         new AccountSeat 
                         {
-                            Description = "Fanny",
+                            Description = "Alfred account",
                             CustomerId = 3,
                             AccountNumber = 13,
                             MType = "DB",
@@ -103,14 +101,16 @@ namespace FacSystemPropietaria.Controllers
                             SeatAmount = Convert.ToInt32(totalAmount),
                             State = false 
                         } 
-                    }
+                    },
+                    movementType = "DB",
+                    entryDate = DateTime.Now.ToString("yyyy-MM-dd h:mm tt"),
+                    seatAmount = ""+totalAmount,
+                    status = "true"
                 };
                 
                 var data = new JavaScriptSerializer().Serialize(obj);
 
                 //Enviar a ws externo
-
-
                 string Baseurl = "https://ec851079273a.ngrok.io/";
                 List<AccountSeat> Seats = new List<AccountSeat>();
 
@@ -137,65 +137,21 @@ namespace FacSystemPropietaria.Controllers
                         //Deserializing the response recieved from web api and storing into the Employee list  
                         //Seats = JsonConvert.DeserializeObject<List<AccountSeat>>(SeatResponse);
 
-                    }
-                }
 
-                return null;
-
-
-                /*const string url = "https://ec851079273a.ngrok.io/api/accountingEntry";
-                HttpClient client = new HttpClient();
-                client.BaseAddress = newUri("http://localhost:55587/");
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(newMediaTypeWithQualityHeaderValue("application/json"));
-
-
-                HttpResponseMessage response = client.PostAsync(url, data);
-                response.EnsureSuccessStatusCode();
-
-                /*
-               
-
-                string json = data;
-                request.Method = "POST";
-                request.ContentType = "application/json";
-                request.Accept = "application/json";
-
-                using (var streamWriter = new StreamWriter(request.GetRequestStream()))
-                {
-                    streamWriter.Write(json);
-                    streamWriter.Flush();
-                    streamWriter.Close();
-                }
-
-                try
-                {
-                    using (WebResponse response = request.GetResponse())
-                    {
-                        using (Stream strReader = response.GetResponseStream())
+                        foreach (var items in SeatsToSent)
                         {
-                            if (strReader == null) return "";
-                            using (StreamReader objReader = new StreamReader(strReader))
-                            {
-                                string responseBody = objReader.ReadToEnd();
-                                if (responseBody.Contains("Su número de asiento es #"))
-                                {
-                                    //processDAO.LogOnDB(desde, hasta);
-                                }
-                                return responseBody;
-                            }
+                            items.State = true;
+                            db.Entry(items).State = EntityState.Modified;
+                            db.SaveChanges();
                         }
                     }
                 }
-                catch (WebException ex)
-                {
-                    return "ERR: " + ex.Status + " desc : " + ex.Message;
-                }
-            */
+
+                return RedirectToAction("About");
             }
             else
             {
-                return null;//"No se han encontrado registros para el periodo evaluado.";
+                return ViewBag.Message = "No se han encontrado registros para el periodo evaluado.";
 
             }
         }
@@ -243,8 +199,11 @@ namespace FacSystemPropietaria.Controllers
 
 public class Root
 {
-    public string Descripcion { get; set; }
-    public int IdCuentaAuxiliar { get; set; }
-    public string MovementType { get; set; }
-    public List<AccountSeat> Asientos { get; set; }
+    public string description { get; set; }
+    public int idAuxiliarSystem { get; set; }
+    public List<AccountSeat> account { get; set; }
+    public string movementType { get; set; }
+    public string entryDate { get; set; }
+    public string seatAmount { get; set; }
+    public string status { get; set; }
 }

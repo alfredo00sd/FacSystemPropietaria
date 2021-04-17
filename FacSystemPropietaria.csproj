@@ -53,12 +53,6 @@
       <HintPath>packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Graph, Version=3.29.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.Graph.3.29.0\lib\net461\Microsoft.Graph.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Graph.Core, Version=1.25.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.Graph.Core.1.25.1\lib\net45\Microsoft.Graph.Core.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -200,7 +194,6 @@
     <Compile Include="Controllers\BillsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
-    <Compile Include="Controllers\FacturasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -299,6 +292,10 @@
     <Compile Include="Migrations\202104162303555_asda.designer.cs">
       <DependentUpon>202104162303555_asda.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104170246362_The last one!.cs" />
+    <Compile Include="Migrations\202104170246362_The last one!.designer.cs">
+      <DependentUpon>202104170246362_The last one!.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountSeat.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -307,7 +304,6 @@
     <Compile Include="Models\BillDetailVM.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\Factura.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Items.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -391,11 +387,6 @@
     <Content Include="Views\Bills\Details.cshtml" />
     <Content Include="Views\Bills\Edit.cshtml" />
     <Content Include="Views\Bills\Index.cshtml" />
-    <Content Include="Views\Facturas\Create.cshtml" />
-    <Content Include="Views\Facturas\Delete.cshtml" />
-    <Content Include="Views\Facturas\Details.cshtml" />
-    <Content Include="Views\Facturas\Edit.cshtml" />
-    <Content Include="Views\Facturas\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FacSystemPropietaria20210408160622 - Web Deploy.pubxml" />
   </ItemGroup>
   <ItemGroup>
@@ -467,6 +458,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104162303555_asda.resx">
       <DependentUpon>202104162303555_asda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104170246362_The last one!.resx">
+      <DependentUpon>202104170246362_The last one!.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

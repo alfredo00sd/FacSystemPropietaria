@@ -24,6 +24,7 @@ namespace FacSystemPropietaria.Models
 
         public ApplicationDbContext() : base("DefaultConnection", throwIfV1Schema: false)
         {
+
         }
 
         public static ApplicationDbContext Create()
@@ -34,9 +35,7 @@ namespace FacSystemPropietaria.Models
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Bill> Bills { get; set; }
         public DbSet<BillDetails> BillDetails { get; set; }
-        public DbSet<Factura> Factura { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<AccountSeat> AccountSeats { get; set; }
-
     }
 }
