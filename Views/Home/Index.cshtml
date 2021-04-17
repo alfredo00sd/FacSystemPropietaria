@@ -24,10 +24,14 @@
             </p>
             <!-- hacer que solo aparezca se falta asiento por enviar. -->
             <div class="col-md-6">
-               <a class="btn btn-success btn-block" href="#">Enviar pendientes</a>
+                <span class="btn btn-success btn-block">
+                        @Html.ActionLink("Enviar pendientes", "Enviar_asiento_contableAsync", "Home")
+                </span>
             </div><p></p>
             <div class="col-md-6">
-                <a href="#" class="btn btn-primary btn-block">Ver asientos enviados</a>
+                <span class="btn btn-primary btn-block">
+                    @Html.ActionLink("Ver asientos enviados", "About", "Home")
+                </span>
             </div>
             
         </div>
